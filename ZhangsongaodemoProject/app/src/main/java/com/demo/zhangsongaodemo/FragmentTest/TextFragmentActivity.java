@@ -8,6 +8,9 @@ import android.widget.FrameLayout;
 
 import com.demo.zhangsongaodemo.R;
 
+/**
+ * 主要测试fragment的生命周期和标准用法
+ */
 public class TextFragmentActivity extends android.support.v4.app.FragmentActivity {
 
     TestFragment testFragment;
