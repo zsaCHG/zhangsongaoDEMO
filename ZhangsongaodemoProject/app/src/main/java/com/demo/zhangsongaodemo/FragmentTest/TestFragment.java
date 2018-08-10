@@ -48,7 +48,7 @@ public class TestFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         Log.d("text9090",flag+"F onCreateView");
         view=inflater.inflate(R.layout.fragment_text,null);
-        textView=view.findViewById(R.id.tv_ss);
+        textView=(TextView) view.findViewById(R.id.tv_ss);
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,6 +68,7 @@ public class TestFragment extends Fragment {
     public void onResume() {
         super.onResume();
         Log.d("text9090",flag+"F onResume");
+        getActivity().getIntent();
         if (string != null) {
             string.toString();
         }

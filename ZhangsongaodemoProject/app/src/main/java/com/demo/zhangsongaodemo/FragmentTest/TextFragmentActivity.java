@@ -40,20 +40,17 @@ public class TextFragmentActivity extends android.support.v4.app.FragmentActivit
         new Handler().post(new Runnable() {
             @Override
             public void run() {
-                if (k==0) {
                     if (testFragment != null) {
 
                     }else {
-
                         testFragment=new TestFragment();
                         testFragment.setIn(2);
                     }
                     Bundle bundle=new Bundle();
                     bundle.putString("dfd","dfdfd");
                     testFragment.setArguments(bundle);
-                    getSupportFragmentManager().beginTransaction().add(R.id.frame,testFragment).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.frame,testFragment).commit();
                     k++;
-                }
             }
         });
     }

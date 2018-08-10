@@ -10,6 +10,14 @@
         android:id="@+id/tv_fragment"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:text="Fragment" />
+        android:text="Fragment"
+        android:padding="10dp"/>
+
+    <TextView
+        android:id="@+id/tv_layoutparams"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="LayoutPrams"
+        android:padding="10dp"/>
 
 </LinearLayout>
