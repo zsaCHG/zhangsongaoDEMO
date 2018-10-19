@@ -3,7 +3,11 @@ package com.demo.zhangsongaodemo.androidtest;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.demo.zhangsongaodemo.R;
@@ -15,19 +19,24 @@ public class LayoutParamsTest extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_layout_params_test);
-        textView=(TextView) findViewById(R.id.tv_layoutparams_test);
+        View view= LayoutInflater.from(this).inflate(R.layout.activity_layout_params_test,null);
+//        textView=(TextView) view.findViewById(R.id.tv_layoutparams_test);
+        textView=new TextView(this);
+        getLayoutParams();
+        setContentView(view);
         getLayoutParams();
         setLayoutParams();
         getLayoutParams();
+        addContentView(textView,textView.getLayoutParams());
     }
 
     /**
      *  设置layoutParams
      */
     public void setLayoutParams(){
-        ViewGroup.LayoutParams layoutParams=new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        FrameLayout.LayoutParams layoutParams=new FrameLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
         layoutParams.width=3000;
+        LinearLayout.LayoutParams layoutParams1=new LinearLayout.LayoutParams(layoutParams);
         textView.setLayoutParams(layoutParams);
     }
 
@@ -38,6 +47,7 @@ public class LayoutParamsTest extends Activity {
     }
 
     public void getLayoutParams(){
+        ViewGroup.LayoutParams view=textView.getLayoutParams();
         if (textView.getLayoutParams() != null) {
             Log.d("dfdfsss","ddddd");
         }else {

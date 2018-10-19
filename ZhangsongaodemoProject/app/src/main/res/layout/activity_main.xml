@@ -20,4 +20,11 @@
         android:text="LayoutPrams"
         android:padding="10dp"/>
 
+    <TextView
+        android:id="@+id/tv_SurfaceView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="SurfaceView"
+        android:padding="10dp"/>
+
 </LinearLayout>

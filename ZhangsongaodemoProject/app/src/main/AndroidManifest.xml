@@ -21,6 +21,8 @@
             android:screenOrientation="sensor"/>
         <activity android:name=".androidtest.LayoutParamsTest">
         </activity>
+        <activity android:name=".androidtest.SurfaceViewActivity">
+        </activity>
     </application>
 
 </manifest>
