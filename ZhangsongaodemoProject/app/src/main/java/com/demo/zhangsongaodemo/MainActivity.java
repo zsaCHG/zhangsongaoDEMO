@@ -7,8 +7,12 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.demo.zhangsongaodemo.FragmentTest.TextFragmentActivity;
+import com.demo.zhangsongaodemo.androidtest.CoordinatorLayoutActivity;
 import com.demo.zhangsongaodemo.androidtest.LayoutParamsTest;
 import com.demo.zhangsongaodemo.androidtest.SurfaceViewActivity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends Activity implements View.OnClickListener {
 
@@ -18,21 +22,33 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     private TextView tv_SurfaceView;
 
+    private TextView tv_Coordinator;
+
+    List<TextView> textViewList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        textViewList=new ArrayList<>();
         tv_fragment=(TextView) findViewById(R.id.tv_fragment);
         tv_layoutparams=(TextView)findViewById(R.id.tv_layoutparams);
         tv_SurfaceView=(TextView)findViewById(R.id.tv_SurfaceView);
+        tv_Coordinator=findViewById(R.id.tv_Coordinator);
+        textViewList.add(tv_Coordinator);
+        textViewList.add(tv_SurfaceView);
+        textViewList.add(tv_layoutparams);
+        textViewList.add(tv_fragment);
         initListener();
 
     }
 
     public void initListener(){
-        tv_fragment.setOnClickListener(this);
-        tv_layoutparams.setOnClickListener(this);
-        tv_SurfaceView.setOnClickListener(this);
+        if (textViewList != null) {
+            for (TextView textView : textViewList) {
+                textView.setOnClickListener(this);
+            }
+        }
     }
 
     @Override
@@ -49,6 +65,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
             case R.id.tv_SurfaceView:
                 Intent intentSuface=new Intent(this, SurfaceViewActivity.class);
                 startActivity(intentSuface);
+                break;
+            case R.id.tv_Coordinator:
+                Intent intentCoordinator=new Intent(this, CoordinatorLayoutActivity.class);
+                startActivity(intentCoordinator);
                 break;
         }
     }

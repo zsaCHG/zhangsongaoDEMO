@@ -23,6 +23,8 @@
         </activity>
         <activity android:name=".androidtest.SurfaceViewActivity">
         </activity>
+        <activity android:name=".androidtest.CoordinatorLayoutActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -27,4 +27,11 @@
         android:text="SurfaceView"
         android:padding="10dp"/>
 
+    <TextView
+        android:id="@+id/tv_Coordinator"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="Coordinator"
+        android:padding="10dp"/>
+
 </LinearLayout>
