@@ -25,7 +25,7 @@
         android:padding="20dp"
         android:text="2222"
         android:layout_marginLeft="100dp"
-        app:layout_behavior="com.demo.zhangsongaodemo.androidtest.FirstBehavior"
+
         />
 
     <TextView
@@ -51,11 +51,35 @@
             android:minHeight="10dp"
             app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"/>
     </android.support.design.widget.AppBarLayout>
+
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycle_test"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="30dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         >
     </android.support.v7.widget.RecyclerView>
+
+    <TextView
+        android:id="@+id/tv_personal"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="90dp"
+        android:text="909009090"
+        android:background="#000000"
+        android:textColor="#ffffff"
+        app:layout_behavior="com.demo.zhangsongaodemo.androidtest.FirstBehavior"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_personal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="190dp"
+        >
+
+    </android.support.v7.widget.RecyclerView>
+
+
+
 </android.support.design.widget.CoordinatorLayout>

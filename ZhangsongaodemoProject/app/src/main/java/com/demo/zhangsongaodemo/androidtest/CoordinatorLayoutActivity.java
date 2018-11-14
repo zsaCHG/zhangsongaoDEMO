@@ -33,13 +33,18 @@ public class CoordinatorLayoutActivity extends Activity {
 
     private AppBarLayout apl;
 
+    private TextView tv_personal;
+
+    private RecyclerView rv_personal;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coordinator_layout);
         stringList=new ArrayList<>();
         initView();
-        initRecycle();
+        initRecycle(recycle_test);
+        initRecycle(rv_personal);
     }
 
     private void initView(){
@@ -49,10 +54,13 @@ public class CoordinatorLayoutActivity extends Activity {
         tv_click2=findViewById(R.id.tv_click2);
         recycle_test=findViewById(R.id.recycle_test);
         apl=findViewById(R.id.abl);
+        tv_personal=findViewById(R.id.tv_personal);
+        rv_personal=findViewById(R.id.rv_personal);
         tv_click2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tv_click2.setX(tv_click2.getX()+50);
+//                tv_click2.setX(tv_click2.getX()+50);
+                tv_click2.getLayoutParams().height=10;
             }
         });
         textViewClick.setOnClickListener(new View.OnClickListener() {
@@ -64,15 +72,15 @@ public class CoordinatorLayoutActivity extends Activity {
         });
     }
 
-    private void initRecycle(){
+    private void initRecycle(RecyclerView recyclerView){
         for (int i = 0; i < 100; i++) {
             stringList.add("这时第几个"+i);
         }
         RecyclerView.LayoutManager layout=new LinearLayoutManager(this);
-        recycle_test.setLayoutManager(layout);
+        recyclerView.setLayoutManager(layout);
 
         Adapter adapter=new Adapter(stringList, this);
-        recycle_test.setAdapter(adapter);
+        recyclerView.setAdapter(adapter);
     }
 
 
