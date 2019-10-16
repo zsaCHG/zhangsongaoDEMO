@@ -37,7 +37,7 @@ public class AIDLService extends Service {
     @Override
     public IBinder onBind(Intent intent) {
 
-        return new IBookManager.Stub() {
+        return new LocalBookManager.Stub() {
             @Override
             public List<Book> getBookList() throws RemoteException {
                 return bookList;
@@ -46,17 +46,10 @@ public class AIDLService extends Service {
             @Override
             public void addListener(BookArrivedListener bookArrivedListener) throws RemoteException {
                 remoteCallbackList.register(bookArrivedListener);
-
-
                 Book book = new Book();
                 book.bookName = "BOOK TWO";
                 remoteCallbackList.beginBroadcast();
                 remoteCallbackList.getBroadcastItem(0).onBookArrived(book);
-            }
-
-            @Override
-            public void removeListener(BookArrivedListener bookArrivedListener) throws RemoteException {
-                remoteCallbackList.unregister(bookArrivedListener);
             }
         };
     }

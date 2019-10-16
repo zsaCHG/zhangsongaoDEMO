@@ -15,6 +15,7 @@ import android.util.Log;
 
 import com.demo.zhangsongaodemo.R;
 import com.demo.zhangsongaodemo.ipc.aidl.AIDLService;
+import com.demo.zhangsongaodemo.ipc.aidl.LocalBookManager;
 import com.demo.zhangsongaodemo.ipc.messager.MessengerServerService;
 
 import java.io.BufferedReader;
@@ -57,8 +58,8 @@ public class IPCActivity extends AppCompatActivity implements IBinder.DeathRecip
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
             try {
-                IBookManager iBookManager = IBookManager.Stub.asInterface(service);
-                Log.d("AIDL",iBookManager.getBookList().get(0).bookName);
+                LocalBookManager iBookManager = LocalBookManager.Stub.asInterface(service);
+
                 iBookManager.addListener(new BookArrivedListener.Stub() {
                     @Override
                     public void onBookArrived(Book book) throws RemoteException {
@@ -117,7 +118,8 @@ public class IPCActivity extends AppCompatActivity implements IBinder.DeathRecip
 //            }
 //        }).start();
 
-        connectUseBinderPool();
+        connectUserAidl();
+//        connectUseBinderPool();
     }
 
     private void connectUseMessenger() {

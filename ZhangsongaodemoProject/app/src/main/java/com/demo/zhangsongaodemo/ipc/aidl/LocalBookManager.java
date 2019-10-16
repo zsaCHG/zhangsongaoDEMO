@@ -7,6 +7,7 @@ import android.os.Parcel;
 import android.os.RemoteException;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 import com.demo.zhangsongaodemo.ipc.Book;
 import com.demo.zhangsongaodemo.ipc.BookArrivedListener;
@@ -31,7 +32,7 @@ public interface LocalBookManager extends IInterface {
         public static final int secondMethod = Binder.FIRST_CALL_TRANSACTION+2;
 
 
-        public LocalBookManager asInterface(IBinder iBinder){
+        public static LocalBookManager asInterface(IBinder iBinder){
             if (iBinder == null) {
                 return null;
             }
@@ -52,8 +53,9 @@ public interface LocalBookManager extends IInterface {
                     reply.writeTypedList(books);
                     return true;
                 case secondMethod:
-                    BookArrivedListener bookArrivedListener= BookArrivedListener.Stub.asInterface(data.readStrongBinder());
+                    BookArrivedListener bookArrivedListener = BookArrivedListener.Stub.asInterface(data.readStrongBinder());
                     addListener(bookArrivedListener);
+                    Log.d("AIDL","add It");
                     return true;
             }
 
@@ -89,8 +91,9 @@ public interface LocalBookManager extends IInterface {
         public void addListener(BookArrivedListener bookArrivedListener) throws android.os.RemoteException{
             android.os.Parcel _data = android.os.Parcel.obtain();
             android.os.Parcel _reply = android.os.Parcel.obtain();
+            _data.writeStrongBinder((((bookArrivedListener != null)) ? (bookArrivedListener.asBinder()) : (null)));
             mRemote.transact(Stub.secondMethod,_data,_reply,0);
-            _reply.readException();
+            Log.d("AIDL","add It");
         }
 
         @Override
