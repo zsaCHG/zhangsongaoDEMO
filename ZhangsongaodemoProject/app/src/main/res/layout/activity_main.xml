@@ -1,49 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.demo.zhangsongaodemo.MainActivity">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:id="@+id/ll_root"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="center_horizontal"
+              android:orientation="vertical"
+              tools:context="com.demo.zhangsongaodemo.MainActivity">
 
-    <TextView
-        android:id="@+id/tv_fragment"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:text="Fragment"
-        android:padding="10dp"/>
-
-    <TextView
-        android:id="@+id/tv_layoutparams"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:text="LayoutPrams"
-        android:layout_toRightOf="@id/tv_fragment"
-        android:padding="10dp"/>
-
-    <TextView
-        android:id="@+id/tv_SurfaceView"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:text="SurfaceView"
-        android:layout_toRightOf="@id/tv_layoutparams"
-        android:padding="10dp"/>
-
-    <TextView
-        android:id="@+id/tv_Coordinator"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:text="Coordinator"
-        android:layout_toRightOf="@id/tv_SurfaceView"
-        android:padding="10dp"/>
-
-    <TextView
-        android:id="@+id/tv_NestedScroller"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:text="NestedScroller"
-        android:layout_below="@id/tv_Coordinator"
-        android:padding="10dp"/>
-
-
-</RelativeLayout>
+</LinearLayout>

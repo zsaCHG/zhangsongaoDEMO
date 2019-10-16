@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.demo.zhangsongaodemo">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,6 +12,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".viewtest.ViewActivity">
+        </activity>
+
+        <service
+            android:name=".ipc.BinderPoolService"
+            android:enabled="true"
+            android:exported="true">
+        </service>
+        <service
+            android:name=".ipc.messager.MessengerServerService"
+            android:process=":zhangsongao">
+        </service>
+        <service
+            android:name=".ipc.aidl.AIDLService"
+            android:process=":baobao"/>
+        <service
+            android:name=".ipc.SocketService"
+            android:process=":socket"/>
+
+        <activity android:name=".ipc.IPCActivity">
+        </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -27,6 +51,16 @@
         </activity>
         <activity android:name=".androidtest.NestedScroller.NestedActivity">
         </activity>
+        <activity
+            android:name=".androidtest.activitytest.TestActActivity"
+            android:launchMode="singleInstance">
+        </activity>
+        <activity
+            android:name=".androidtest.activitytest.SingleTastActivity"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.demo.zhangsongaodemo1">
+        </activity>
+        <activity android:name=".androidtest.ViewMeasureActivity"/>
     </application>
 
 </manifest>

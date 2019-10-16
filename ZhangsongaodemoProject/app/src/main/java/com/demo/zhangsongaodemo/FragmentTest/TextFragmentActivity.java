@@ -1,5 +1,6 @@
 package com.demo.zhangsongaodemo.FragmentTest;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.PersistableBundle;
@@ -7,6 +8,7 @@ import android.util.Log;
 import android.widget.FrameLayout;
 
 import com.demo.zhangsongaodemo.R;
+import com.demo.zhangsongaodemo.androidtest.activitytest.SingleTastActivity;
 
 /**
  * 主要测试fragment的生命周期和标准用法
@@ -25,6 +27,8 @@ public class TextFragmentActivity extends android.support.v4.app.FragmentActivit
         super.onCreate(savedInstanceState);
         Log.d("text9090","a onCreate");
         setContentView(R.layout.activity_fragment);
+        Intent intent = new Intent(TextFragmentActivity.this, SingleTastActivity.class);
+        startActivity(intent);
     }
 
     @Override

@@ -5,7 +5,6 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.util.AttributeSet;
@@ -46,7 +45,8 @@ public class MediaSurfaceView extends SurfaceView implements SurfaceHolder.Callb
         paint = new Paint();
         paint = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.DITHER_FLAG);
         Resources res = getResources();
-        bitmap = BitmapFactory.decodeResource(res, R.drawable.tanchuang);
+        //abc_text_select_handle_left_mtrl_dark
+        bitmap = BitmapFactory.decodeResource(res, R.drawable.abc_text_select_handle_left_mtrl_dark);
     }
 
     public MediaSurfaceView(Context context, AttributeSet attrs) {
@@ -85,7 +85,7 @@ public class MediaSurfaceView extends SurfaceView implements SurfaceHolder.Callb
         try {
             canvas = surfaceHolder.lockCanvas();
             if (canvas != null && bitmap!=null) {
-                canvas.drawColor(Color.WHITE);
+//                canvas.drawColor(Color.WHITE);
                 canvas.drawBitmap(bitmap, null, bitmapRect, paint);
             }
         }catch(Exception e){
